@@ -1,6 +1,6 @@
 var fs = require('fs'),
     rmdir = require('rmdir'),
-    unzip = require('unzip'),
+    unzip = require('unzipper'),
     xmlbuilder = require('xmlbuilder'),
     xml2js = require('xml2js');
 
@@ -735,7 +735,6 @@ rmdir(targetDir, function () {
     // Get list of glyphs in the "overrides" directory, which will be used to replace
     // same-named glyphs from the main source archive
     var overrides = fs.readdirSync(overridesDir);
-
     // Finally, we're ready to process the images from the main source archive:
     fs.createReadStream(sourceZip).pipe(unzip.Parse()).on('entry', function (e) {
         var data = "";
